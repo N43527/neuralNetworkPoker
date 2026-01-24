@@ -1,6 +1,8 @@
 import numpy as np
 import eval7, pprint
 
+folder = "datasets/"
+
 def fullPokerDataSetCreation():
     numDict = {"A": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5,
             "7": 6, "8": 7, "9": 8, "T": 9, "J": 10, "Q": 11, "K": 12}
@@ -38,23 +40,23 @@ def fullPokerDataSetCreation():
     return datasetX, datasetY
 
 def highCardPokerDataSetImport():
-    datasetX = np.loadtxt("highCardX.csv", delimiter=",", dtype=int)[:150000]
-    datasetY = np.loadtxt("highCardY.csv", delimiter=",", dtype=int)[:150000]
+    datasetX = np.loadtxt(folder + "highCardX.csv", delimiter=",", dtype=int)[:150000]
+    datasetY = np.loadtxt(folder + "highCardY.csv", delimiter=",", dtype=int)[:150000]
     return datasetX, datasetY
 
 def eightteenInputsHighCardPokerDataSetImport():
-    datasetX = np.loadtxt("18InputsHighCardX.csv", delimiter=",")
-    datasetY = np.loadtxt("18InputsHighCardY.csv", delimiter=",", dtype=int)
+    datasetX = np.loadtxt(folder + "18InputsHighCardX.csv", delimiter=",")
+    datasetY = np.loadtxt(folder + "18InputsHighCardY.csv", delimiter=",", dtype=int)
     return datasetX, datasetY
 
 def eightteenInputsHighCardPokerDataSetHarderImport():
-    datasetX = np.loadtxt("18InputsHighCardX_HarderSamples.csv", delimiter=",")
-    datasetY = np.loadtxt("18InputsHighCardY_HarderSamples.csv", delimiter=",", dtype=int)
+    datasetX = np.loadtxt(folder + "18InputsHighCardX_HarderSamples.csv", delimiter=",")
+    datasetY = np.loadtxt(folder + "18InputsHighCardY_HarderSamples.csv", delimiter=",", dtype=int)
     return datasetX, datasetY
 
 def nineInputsHighCardPokerDataSetImport():
-    datasetX = np.loadtxt("9InputsHighCardX.csv", delimiter=",", dtype=int)
-    datasetY = np.loadtxt("9InputsHighCardY.csv", delimiter=",", dtype=int)
+    datasetX = np.loadtxt(folder + "9InputsHighCardX.csv", delimiter=",", dtype=int)
+    datasetY = np.loadtxt(folder + "9InputsHighCardY.csv", delimiter=",", dtype=int)
     return datasetX, datasetY
 
 def miniDatasetCreation(maxNum, numExamples, minThres):

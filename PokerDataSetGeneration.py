@@ -200,7 +200,7 @@ def nineInputsHighCardPokerDataSetCreation():
 
     return datasetX, datasetY
 
-
+datasetsFolder = "datasets/"
 # X, Y = highCardPokerDataSetCreation()
 # print(len(X))
 
@@ -216,7 +216,7 @@ def nineInputsHighCardPokerDataSetCreation():
 X, Y = nineInputsHighCardPokerDataSetCreation()
 print(len(X))
 
-np.savetxt("9InputsHighCardX.csv", X, fmt="%d", delimiter=',')
-np.savetxt("9InputsHighCardY.csv", Y, fmt="%d", delimiter=',')
+np.savetxt(datasetsFolder + "9InputsHighCardX.csv", X, fmt="%d", delimiter=',')
+np.savetxt(datasetsFolder + "9InputsHighCardY.csv", Y, fmt="%d", delimiter=',')
 
 

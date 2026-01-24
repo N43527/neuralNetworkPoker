@@ -26,7 +26,9 @@ layer_dims = [trainX.shape[0], 64, 64, 64, 64, 64, 64, trainY.shape[0]]
 outputSampleLength = 4
 epochs = 200000
 
-progressFile = "progress.csv"
+trainedModelFolder = "trainedModels/"
+datasetsFolder = "datasets/"
+progressFile = datasetsFolder + "progress.csv"
 with open(progressFile, "w") as f:
     f.write("epoch,cost,training accuracy,testing accuracy\n")
 progressList = []
@@ -67,7 +69,7 @@ for i in range(epochs):
         print("cost of iteration #", i, "is", cost)
         print("train accuracy: " + str(100*trainAccuracy) + "%")
         print("test accuracy: "+ str(100*testAccuracy) + "%")
-        filename = "weights_" + timeStamp + "@"+ str(i*100/epochs) + "%.npy"
+        filename = trainedModelFolder + "weights_" + timeStamp + "@"+ str(i*100/epochs) + "%.npy"
         if prevName != "":
             os.replace(prevName, filename)
         np.save(filename, parameters)
@@ -102,7 +104,7 @@ print(f"Total Duration:   {str(duration).split('.')[0]} (H:M:S)")
 print("train accuracy: ", str(100*TUtils.predict(trainX, parameters, trainY)) + "%")
 print("test accuracy: ", str(100*TUtils.predict(testX, parameters, testY)) + "%")
 
-filename ="weights_" + timeStamp + "@"+ str((i+1)*100/epochs) + "%.npy"
+filename = trainedModelFolder + "weights_" + timeStamp + "@"+ str((i+1)*100/epochs) + "%.npy"
 if prevName != "":
     os.replace(prevName, filename)
 np.save(filename, parameters)

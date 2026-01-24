@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-parameters_ndarray = np.load("weights_2026-01-08 00:01:05@100.0%.npy", allow_pickle=True)
+parameters_ndarray = np.load("trainedModels/bestHighCardModel.npy", allow_pickle=True)
 parameters = parameters_ndarray.item()
 
 datasetX, datasetY = DUtils.nineInputsHighCardPokerDataSetImport()
@@ -34,7 +34,7 @@ TUtils.testOutputPrint(AL, trainX, trainY, outputSampleLength, isDense, is18Inpu
 
 TUtils.testOutputPrint(AL, testX, testY, outputSampleLength, isDense, is18Inputs, isFails)
 
-progressFile = "progress.csv"
+progressFile = "datasets/progress.csv"
 df = pd.read_csv(progressFile)
 
 

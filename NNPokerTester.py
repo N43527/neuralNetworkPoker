@@ -11,7 +11,7 @@ parameters = parameters_ndarray.item()
 
 datasetX, datasetY = DUtils.nineInputsHighCardPokerDataSetImport()
 
-trainX, trainY, testX, testY = DUtils.trainTestSplit(datasetX, datasetY)
+trainX, trainY, testX, testY = DUtils.trainTestSplit(datasetX[:300000], datasetY[:300000])
 
 print(str(100*TUtils.predict(trainX, parameters, trainY)) + "%")
 print(str(100*TUtils.predict(testX, parameters, testY)) + "%")

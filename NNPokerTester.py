@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-parameters_ndarray = np.load("trainedModels/bestHighCardModel.npy", allow_pickle=True)
+parameters_ndarray = np.load("publicModels/bestHighCardModel.npy", allow_pickle=True)
 parameters = parameters_ndarray.item()
 
 datasetX, datasetY = DUtils.nineInputsHighCardPokerDataSetImport()
@@ -17,7 +17,7 @@ print(str(100*TUtils.predict(trainX, parameters, trainY)) + "%")
 print(str(100*TUtils.predict(testX, parameters, testY)) + "%")
 
 
-outputSampleLength = 4
+outputSampleLength = 10
 isDense = True
 is18Inputs = False
 

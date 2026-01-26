@@ -9,7 +9,7 @@ import testing_utilities as TUtils
 import dataset_utilities as DUtils
 import NN_utilities as NNUtils
 
-parameters_ndarray = np.load("weights_2026-01-08 00:01:05@100.0%.npy", allow_pickle=True)
+parameters_ndarray = np.load("publicModels/bestHighCardModel.npy", allow_pickle=True)
 parameters = parameters_ndarray.item()
 
 def nineInputsHighCardPokerDataSetCreation():
@@ -71,11 +71,13 @@ def nineInputsHighCardPokerDataSetCreation():
 
 datasetX, datasetY = nineInputsHighCardPokerDataSetCreation()
 
-np.savetxt("9InputsHighCardXTest.csv", datasetX, fmt="%d", delimiter=',')
-np.savetxt("9InputsHighCardYTest.csv", datasetY, fmt="%d", delimiter=',')
+datasetsFolder = "datasets/"
 
-datasetX = np.loadtxt("9InputsHighCardXTest.csv", delimiter=",", dtype=int)
-datasetY = np.loadtxt("9InputsHighCardYTest.csv", delimiter=",", dtype=int)
+np.savetxt(datasetsFolder + "9InputsHighCardXTest.csv", datasetX, fmt="%d", delimiter=',')
+np.savetxt(datasetsFolder + "9InputsHighCardYTest.csv", datasetY, fmt="%d", delimiter=',')
+
+datasetX = np.loadtxt(datasetsFolder + "9InputsHighCardXTest.csv", delimiter=",", dtype=int)
+datasetY = np.loadtxt(datasetsFolder + "9InputsHighCardYTest.csv", delimiter=",", dtype=int)
 
 AL, caches = NNUtils.L_Layer_FeedForward(datasetX.T, parameters)
 input()
